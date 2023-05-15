@@ -1,6 +1,6 @@
 {
 	"name": "svelte-monaco-editor",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "An very component to intergrate monaco editor in your svelte application.",
 	"keywords": ["svlte monaco editor", "monaco-editor", "svelte code editor"],
 	"repository": {
@@ -12,6 +12,17 @@
 		"url": "https://harshagrawal.xyz",
 		"email": "harshagrawal2489@gmail.com"
 	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
