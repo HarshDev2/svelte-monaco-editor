@@ -1,58 +1,59 @@
-# create-svelte
+# Monaco Editor Svelte
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+An easy to use component that intergrates monaco editor in your svelte application.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## How to use -
 
-## Creating a project
+```html
+<script>
+import { MonacoEditor} from "svelte-monaco-editor";
 
-If you're seeing this, you've probably already done this step. Congrats!
+let editorValue;
+</script>
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+<MonacoEditor style="width: 100%; height: 40vh;" language="javascript" bind:value={editorValue}/>
 ```
 
-## Developing
+## Props that are available -
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```html
+<!--
+    Value - Editor Value, Type - String
+-->
+<script>
+    let value;
+</script>
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<MonacoEditor value={value}/>
 ```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
-
-## Building
-
-To build your library:
-
-```bash
-npm run package
+```html
+<!--
+    Style - CSS Styles, Type - String
+-->
+<MonacoEditor style="width: 100%;/>
 ```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
+```html
+<!--
+    ClassName - CSS Class, Type - String
+-->
+<MonacoEditor className="editor"/>
 ```
+```html
+<!--
+    EditorRef - Editor Reference, Type - Any
 
-You can preview the production build with `npm run preview`.
+    Any code that have to be executed on editor, like configuration can be done by editorRef.
+-->
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<script>
+let editor;
+</script>
 
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
+<MonacoEditor editorRef={editor}/>
+```
+```html
+<!--
+    Minimap - Minimap in Editor, Type - Boolean
+-->
+<MonacoEditor minimap={false}/>
 ```
